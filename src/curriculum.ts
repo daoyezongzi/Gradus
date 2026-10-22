@@ -1,0 +1,132 @@
+export interface Category { id: string; name: string; required: number; group: string; mandatory?: boolean }
+export interface Course { id: string; name: string; credits: number; category: string; term: string }
+
+export const categories: Category[] = [
+  { id: 'politics', name: '思政类', required: 18, group: '通识必修', mandatory: true },
+  { id: 'sports', name: '体育类', required: 7.5, group: '通识必修', mandatory: true },
+  { id: 'language', name: '外语类', required: 7, group: '通识必修', mandatory: true },
+  { id: 'health', name: '心理健康教育类', required: 2, group: '通识必修', mandatory: true },
+  { id: 'security', name: '国家安全教育', required: 1, group: '通识必修', mandatory: true },
+  { id: 'ai', name: '人工智能类', required: 4, group: '通识必修', mandatory: true },
+  { id: 'art', name: '艺术修养', required: 1, group: '通识选修' },
+  { id: 'innovation', name: '创新创业', required: 1, group: '通识选修' },
+  { id: 'humanities', name: '人文情怀', required: 1, group: '通识选修' },
+  { id: 'science', name: '科学素养', required: 1, group: '通识选修' },
+  { id: 'society', name: '社会责任', required: 1, group: '通识选修' },
+  { id: 'international', name: '国际视野', required: 1, group: '通识选修' },
+  { id: 'general-ai', name: '人工智能', required: 1, group: '通识选修' },
+  { id: 'foundation', name: '学科基础必修', required: 39, group: '学科基础课程', mandatory: true },
+  { id: 'foundation-elective', name: '学科基础选修', required: 10, group: '学科基础课程' },
+  { id: 'major', name: '专业必修', required: 46, group: '专业课程', mandatory: true },
+  { id: 'major-elective', name: '专业选修', required: 9, group: '专业课程' },
+  { id: 'cross', name: '跨专业个性化选修', required: 4, group: '专业课程' },
+  { id: 'second', name: '第二课堂', required: 6, group: '第二课堂', mandatory: true },
+  { id: 'prerequisite', name: '先修课程', required: 0, group: '先修课程' },
+  { id: 'other', name: '不计入培养计划', required: 0, group: '其他课程' },
+];
+
+const rows: [string, string, number, string, string][] = [
+  ['X810002', '大学数学基础', 2, 'prerequisite', '一1'],
+  ['G237016', '“四史”教育', 1, 'politics', '一1'],
+  ['G237019', '思想道德与法治', 3, 'politics', '一1'],
+  ['G237002', '中国近现代史纲要', 2, 'politics', '一2'],
+  ['G237017', '毛泽东思想和中国特色社会主义理论体系概论', 2, 'politics', '二1'],
+  ['G237003', '马克思主义基本原理', 3, 'politics', '二2'],
+  ['G237020', '习近平新时代中国特色社会主义思想概论', 3, 'politics', '二2'],
+  ['G737001', '思想政治理论课社会实践', 2, 'politics', '二3'],
+  ['G237021', '形势与政策', 2, 'politics', '四2'],
+  ['G113035', '军事理论', 2, 'sports', '一1'],
+  ['G213001', '体育Ⅰ', 1, 'sports', '一1'],
+  ['G713007', '军事技能', 1, 'sports', '一1'],
+  ['G213002', '体育Ⅱ', 1, 'sports', '一2'],
+  ['G213003', '体育Ⅲ', 1, 'sports', '二1'],
+  ['G213004', '体育Ⅳ', 1, 'sports', '二2'],
+  ['G213007', '体质健康训练Ⅲ', 0.25, 'sports', '三1'],
+  ['G213008', '体质健康训练Ⅳ', 0.25, 'sports', '三2'],
+  ['G209065', '通用英语', 2, 'language', '一1'],
+  ['G709040', '通用英语（实践）', 1, 'language', '一1'],
+  ['G209066', '通用学术英语 A', 4, 'language', '一2'],
+  ['G207010', '心理健康教育实践', 1, 'health', '一1'],
+  ['G207007', '心理健康与自我成长', 1, 'health', '一1'],
+  ['G227004', '国家安全教育', 1, 'security', '一1'],
+  ['G226016', 'Python与人工智能', 4, 'ai', '一2'],
+  ['G134184', '政治经济学', 2, 'foundation', '一1'],
+  ['G105110', '管理学B', 2, 'foundation', '一1'],
+  ['G210013', '高等数学Ⅰ', 5, 'foundation', '一1'],
+  ['G105143', '会计学', 3, 'foundation', '一2'],
+  ['G210381', '线性代数B', 2, 'foundation', '一2'],
+  ['G210012', '高等数学ⅡB', 3, 'foundation', '一2'],
+  ['G105294', '微观经济学A', 3, 'foundation', '一2'],
+  ['G734033', '社会经济调研与劳动实践', 1, 'foundation', '一3'],
+  ['G210382', '概率论与数理统计A', 3, 'foundation', '二1'],
+  ['G105464', '货币金融学A', 3, 'foundation', '二1'],
+  ['G134168', '写作课', 2, 'foundation', '二1'],
+  ['G105140', '宏观经济学', 3, 'foundation', '二1'],
+  ['G134159', '数字经济学', 2, 'foundation', '二1'],
+  ['G105032', '财政学', 2, 'foundation', '二2'],
+  ['G105152', '计量经济学A', 3, 'foundation', '二2'],
+  ['G105179', '经济法A', 3, 'foundation-elective', '一2'],
+  ['G105325', '应用统计学A', 3, 'foundation-elective', '二1'],
+  ['G109118', '英语口语Ⅰ', 2, 'foundation-elective', '二1'],
+  ['G105014', '博弈论', 2, 'foundation-elective', '二2'],
+  ['G1341291', '行为与实验经济学', 2, 'foundation-elective', '二2'],
+  ['G134169', '人工智能经济学', 2, 'foundation-elective', '二2'],
+  ['G134186', '中级微观经济学', 2, 'foundation-elective', '二2'],
+  ['G105479', '数据、模型与决策', 2, 'foundation-elective', '二2'],
+  ['G134149', '应用经济学研究方法', 2, 'foundation-elective', '三1'],
+  ['G134172', '机器学习与社会科学应用', 2, 'foundation-elective', '三2'],
+  ['G134142', '产业经济学', 2, 'foundation-elective', '四1'],
+  ['G134187', '中级宏观经济学', 2, 'foundation-elective', '四1'],
+  ['G205004', '金融学专业导论', 1, 'major', '一1'],
+  ['G134146', '新生研讨课', 1, 'major', '一1'],
+  ['G134177', '公司金融', 3, 'major', '二1'],
+  ['G105516', '人工智能原理与应用', 2, 'major', '二1'],
+  ['G105437', '数值计算方法', 2, 'major', '二1'],
+  ['G134178', '金融数据挖掘', 3, 'major', '二2'],
+  ['G734035', '科研训练', 1, 'major', '二2'],
+  ['B134043', '投资学', 3, 'major', '二2'],
+  ['G705055', '投资学课程设计', 1, 'major', '二3'],
+  ['B105180', '金融工程学A', 3, 'major', '三1'],
+  ['G134150', '文本分析与Python应用', 2, 'major', '三1'],
+  ['G105459', '量化大类资产配置', 2, 'major', '三2'],
+  ['G105454', '量化策略开发', 2, 'major', '三2'],
+  ['G734045', '算法交易策略', 1, 'major', '三3'],
+  ['G734041', '金融工程课程设计', 1, 'major', '三3'],
+  ['G7340017', '毕业实习', 4, 'major', '四1'],
+  ['G105455', '金融伦理与职业道德', 2, 'major', '四1'],
+  ['G634013', '毕业设计（论文）', 12, 'major', '四2'],
+  ['G134157', '金融市场学', 2, 'major-elective', '一2'],
+  ['G134151', '金融科技', 2, 'major-elective', '二1'],
+  ['B134044', '国际金融', 3, 'major-elective', '二2'],
+  ['G105011', '保险学', 2, 'major-elective', '二2'],
+  ['G105098', '固定收益证券', 2, 'major-elective', '二2'],
+  ['G105018', '财务报表分析B', 2, 'major-elective', '三1'],
+  ['G134183', '金融计量学', 2, 'major-elective', '三1'],
+  ['G105409', '金融文献选读', 2, 'major-elective', '三1'],
+  ['B134046', '金融风险管理', 2, 'major-elective', '三2'],
+  ['G105410', '金融法B', 2, 'major-elective', '三2'],
+  ['G134185', '因果推断与机器学习', 2, 'major-elective', '三2'],
+  ['G134155', '绿色金融', 2, 'major-elective', '四1'],
+  ['X813002', '体能训练', 1, 'second', '四2'],
+  ['X797002', '综合素质拓展与实践', 2, 'second', '四2'],
+  ['X841003', '创新创业实践', 1, 'second', '四2'],
+  ['X237015', '大学生就业指导与实践', 1, 'second', '四2'],
+  ['X813001', '军事技能拓展', 1, 'second', '四2'],
+];
+
+export const curriculum: Course[] = rows.map(([id, name, credits, category, term]) => ({ id, name, credits, category, term }));
+export const initialCourseIds = ['G134159', 'G105140', 'G105437', 'G134177', 'G105464', 'G213003', 'G210382', 'G105325', 'G105516', 'G237017', 'G134168'];
+export const electiveModules = ['humanities', 'science', 'society', 'international', 'general-ai'];
+
+export function creditSum(courses: Course[]) {
+  return courses.reduce((total, course) => total + Math.round(course.credits * 100), 0) / 100;
+}
+
+export function progress(courses: Course[], completed: string[]) {
+  const selected = courses.filter(course => completed.includes(course.id));
+  const byCategory = Object.fromEntries(categories.map(category => [category.id, creditSum(selected.filter(course => course.category === category.id))]));
+  const general = creditSum(selected.filter(course => categories.find(category => category.id === course.category)?.group === '通识选修'));
+  const graduation = creditSum(selected.filter(course => !['second', 'prerequisite', 'other'].includes(course.category)));
+  const covered = electiveModules.filter(id => byCategory[id] >= 1).length;
+  return { byCategory, general, graduation, covered };
+}
