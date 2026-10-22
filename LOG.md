@@ -2,7 +2,7 @@
 
 ## 2026-10-22
 
-- 初始化 Git 仓库，默认分支为 `main`；GitHub 仓库名称为 `daoyezongzi/Gradus`，访问权限设为私有。
+- 初始化 Git 仓库，默认分支为 `main`；GitHub 仓库名称为 `daoyezongzi/Gradus`，访问权限设为公开。
 - `.gitignore` 排除依赖目录、构建产物、验证文件和 TypeScript 缓存。
 - `pnpm build` 通过，`pnpm test` 的全部 5 项测试通过。
 
